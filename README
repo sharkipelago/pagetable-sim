@@ -1,0 +1,9 @@
+To customize the number of entries in the table edit the two values in config.h
+
+POBITS (value must be between 4 and 18 inclusive) is the number of offset bits per page, and subsequently the size of the page e.g. POBITS = 8 means each page is 2^8 = 265 Bytes
+
+LEVELS (value must be between 1 and 6 inclusive) is the number of levels of the multi-level page table
+
+Note: library is not guaranteed to support values where (POBITS − 3) × (LEVELS + 1) > 60
+
+There was consideration for adding a de-allocate method, but ultimately this was not implemented. This method could not be easily added without reworking a lot of the implementations. As page table traversal is included within the translate and page_allocate function (i.e. there is no helper method) this code would have to be copied again and altered for de-allocation. Additionally, for a multi-level page table, it would not be just a matter of freeing the leaf node, but also every level of the page table where the deallocated page is the only leaf that that that entry is pointing to. This could get tricky in computing how many levels to deallocate. Thus, a de-allocate interface was not implemented.

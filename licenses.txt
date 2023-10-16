@@ -1,0 +1,8 @@
+The MIT License: Not very restrictive, allows developers to use software in their own proprietary software without releasing the source code. Allowed to encrypt and build on top of the software in any way they'd like.
+
+GPL: Anyone is allowed to use software under this license but must publish any software that builds on top of it or uses it under GPL as well.
+
+NGPL: Same as GPL, except products that only link NGPL software and are not derivatives of it (that is modify the original code or build directly on top of it) can be published under any license.
+
+This project uses the MIT License as a page table simulation is a learning project. The code base is extremely small and rather simple; it would not be very useful to anyone trying to build on top of it, and thus it doesn't really matter how it’s used.
+
